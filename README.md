@@ -1,5 +1,11 @@
 # 轮迹研习社 · TRACK STUDIO
 
+## 在线网址
+
+[https://moytkl1999-del.github.io/track-studio-site/](https://moytkl1999-del.github.io/track-studio-site/)
+
+这是本项目已经上线的公开访问地址，可直接用电脑或手机浏览器打开。
+
 > 欢迎，俊男靓女。把你的论文，开上路。
 
 这是“轮迹研习社”车辆工程与自动驾驶研究 Skill 地图的公开网站仓库。网页面向车辆工程硕士、自动驾驶研究者和对开源车辆技术感兴趣的学习者。
@@ -10,12 +16,6 @@
 - 每项推荐均写明“适用于什么”和“怎么开始”。
 - 从选题、复现基线、误差分析到论文贡献表达的硕士研究路线。
 - 原创首屏插画与响应式网页布局。
-
-## 在线访问
-
-GitHub Pages 部署完成后，网站网址是：
-
-https://moytkl1999-del.github.io/track-studio-site/
 
 ## 本地查看
 
