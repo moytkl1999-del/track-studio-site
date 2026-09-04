@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#167a61" />
+    <title>轻养成 · 健康习惯助手</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow" id="todayLabel">今天</p>
+          <h1>轻养成</h1>
+          <p class="subtitle">从一杯水、一次散步开始。</p>
+        </div>
+        <button class="icon-button" id="resetButton" type="button" aria-label="清空所有本地记录" title="清空本地记录">↺</button>
+      </header>
+
+      <section class="mode-switch" id="modeSwitch" aria-label="选择健康计划模式">
+        <button class="mode-button" type="button" data-mode="basic">基础健康模式<span>通用习惯记录</span></button>
+        <button class="mode-button active" type="button" data-mode="jyn">JYN 减肥计划<span>你的 30 天起步方案</span></button>
+      </section>
+
+      <section class="jyn-plan" id="jynPlan" aria-labelledby="jynTitle">
+        <div class="jyn-heading">
+          <div>
+            <p class="eyebrow">专属模式 · JYN</p>
+            <h2 id="jynTitle">先稳稳减，再减得久</h2>
+            <p id="jynProfileSummary">175 cm · 75 kg · 27 岁 · 无健身房起步</p>
+          </div>
+          <div class="jyn-badge">30 天起步</div>
+        </div>
+        <div class="goal-grid">
+          <div><span>当前 BMI</span><strong id="currentBmi">24.5</strong><small id="bmiStatus">体重 ÷ 身高²</small></div>
+          <div><span>首月建议目标</span><strong id="monthGoal">72–73 kg</strong><small id="monthGoalDetail">约减 2–3 kg</small></div>
+          <div><span>第二阶段目标</span><strong id="targetGoal">69.5 kg</strong><small>循序达到，不强迫限期</small></div>
+        </div>
+        <p class="jyn-callout">你的 139 斤目标并不离谱，但从 75 kg 在 30 天内直接减到 69.5 kg 过快。先完成首月的饮食、步行和力量训练习惯；体重趋势稳定后，通常再用约 4–8 周冲向 69.5 kg 会更稳妥。</p>
+
+        <section class="profile-panel" aria-labelledby="profileTitle">
+          <div>
+            <p class="eyebrow">个人数据</p>
+            <h3 id="profileTitle">计划会按你的身高与最新体重更新</h3>
+          </div>
+          <form id="profileForm" class="profile-form">
+            <label><span>身高（cm）</span><input id="heightInput" type="number" inputmode="decimal" min="120" max="220" step="0.1" required /></label>
+            <label><span>年龄</span><input id="ageInput" type="number" inputmode="numeric" min="18" max="100" step="1" required /></label>
+            <label><span>阶段目标（kg）</span><input id="targetWeightInput" type="number" inputmode="decimal" min="35" max="200" step="0.1" required /></label>
+            <button class="secondary-button" type="submit">保存个人数据</button>
+          </form>
+        </section>
+
+        <section class="training-recommendation" aria-labelledby="trainingTitle">
+          <div class="section-heading compact">
+            <div>
+              <p class="eyebrow">动态训练建议</p>
+              <h3 id="trainingTitle">根据最新记录自动调整</h3>
+            </div>
+            <span class="status-pill" id="trainingLevel">起步方案</span>
+          </div>
+          <p class="training-metrics" id="trainingMetrics">将每日体重保存后，这里会计算你的 BMI 和进度。</p>
+          <ul class="training-list" id="trainingRecommendation"></ul>
+          <p class="medical-note">BMI 只是一项筛查指标，不能代替腰围、体脂、疾病史或专业评估。任何疼痛、胸闷、头晕或不适都不应靠“硬扛”继续训练。</p>
+        </section>
+
+        <div class="jyn-grid">
+          <article class="plan-block">
+            <h3>🍚 每日吃法：不挨饿的盘子法</h3>
+            <ul>
+              <li><strong>早餐：</strong>鸡蛋 / 无糖豆浆 / 牛奶 + 燕麦或全麦主食 + 一份水果。</li>
+              <li><strong>午餐：</strong>半盘蔬菜，1 掌心瘦肉/鱼/豆腐，1 拳头米饭或杂粮。</li>
+              <li><strong>晚餐：</strong>按午餐搭配，但主食减到半拳–1拳；睡前 2–3 小时结束正餐。</li>
+              <li><strong>加餐：</strong>真饿时选无糖酸奶、水果、毛豆或少量坚果；不靠奶茶、饼干垫肚子。</li>
+            </ul>
+          </article>
+          <article class="plan-block">
+            <h3>🏃 无健身卡运动安排</h3>
+            <ul>
+              <li><strong>周一/三/五：</strong>居家力量 25–30 分钟：深蹲、靠墙/桌边俯卧撑、臀桥、平板支撑，各 2–3 组。</li>
+              <li><strong>周二/四：</strong>快走 40–45 分钟，能说短句、但呼吸明显加快的速度。</li>
+              <li><strong>周六：</strong>50–60 分钟步行、爬楼或轻松骑行；从能完成的量开始。</li>
+              <li><strong>周日：</strong>25–30 分钟轻松散步和拉伸，恢复而不是躺平。</li>
+            </ul>
+          </article>
+          <article class="plan-block">
+            <h3>📌 外食与食堂选择</h3>
+            <ul>
+              <li>先选 1 份蛋白质：鸡蛋、鱼、去皮鸡肉、瘦肉、豆腐或豆制品。</li>
+              <li>再选 2 份蔬菜，优先清蒸、炖、白灼或少油快炒。</li>
+              <li>主食要有但不过量；先吃菜和蛋白质，再吃主食。</li>
+              <li>白水、无糖茶替换含糖饮料；炸物、甜点、夜宵留作少量偶尔吃。</li>
+            </ul>
+          </article>
+          <article class="plan-block">
+            <h3>📏 追踪与调整</h3>
+            <ul>
+              <li>每周 3–4 次晨起、如厕后、未进食时称重；看一周平均值，不为单日波动焦虑。</li>
+              <li>每周固定一天量一次腰围，并记录睡眠、步行和完成的力量训练。</li>
+              <li>连续 2 周没有下降，再检查饮料、零食、油量、外卖分量和周末饮食。</li>
+              <li>出现头晕、晕厥、胸痛、严重乏力或膝/腰疼痛时停止加量并就医评估。</li>
+            </ul>
+          </article>
+        </div>
+        <p class="jyn-note">本计划按“无已知疾病、可进行普通步行和自重训练”的成年人设计。若有高血压、糖尿病、痛风、肾病、进食障碍史、正在用药或近期受伤，请先让医生或注册营养师调整计划。</p>
+      </section>
+
+      <section class="card overview" aria-labelledby="overviewTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">今日概览</p>
+            <h2 id="overviewTitle">照顾好今天的自己</h2>
+          </div>
+          <span class="status-pill" id="dayStatus">刚开始</span>
+        </div>
+        <div class="overview-grid">
+          <div class="water-ring" id="waterRing" aria-label="喝水进度">
+            <span id="waterRingValue">0</span>
+            <small>／8 杯</small>
+          </div>
+          <div class="overview-copy">
+            <p id="progressMessage">先喝一杯水，开启今天的健康节奏。</p>
+            <div class="progress-track"><span id="progressBar"></span></div>
+            <p class="muted" id="progressDetail">完成 0 / 4 项今日健康行动</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="two-column">
+        <article class="card" aria-labelledby="recordTitle">
+          <div class="section-heading compact">
+            <div>
+              <p class="eyebrow">每日记录</p>
+              <h2 id="recordTitle">今天的身体状态</h2>
+            </div>
+          </div>
+          <form id="recordForm">
+            <div class="field-grid">
+              <label>
+                <span>体重（kg）</span>
+                <input id="weightInput" type="number" inputmode="decimal" min="20" max="300" step="0.1" placeholder="例如 62.5" />
+              </label>
+              <label>
+                <span>昨晚睡眠（小时）</span>
+                <input id="sleepInput" type="number" inputmode="decimal" min="0" max="24" step="0.5" placeholder="例如 7.5" />
+              </label>
+              <label>
+                <span>今日步行/运动（分钟）</span>
+                <input id="activityInput" type="number" inputmode="numeric" min="0" max="600" step="5" placeholder="例如 40" />
+              </label>
+            </div>
+            <button class="primary-button" type="submit">保存今日记录</button>
+            <p class="form-note">记录仅保存在此浏览器的本地，不会上传网络。</p>
+          </form>
+        </article>
+
+        <article class="card water-card" aria-labelledby="waterTitle">
+          <div class="section-heading compact">
+            <div>
+              <p class="eyebrow">喝水记录</p>
+              <h2 id="waterTitle">今天喝了几杯？</h2>
+            </div>
+            <span class="cup-count" id="waterText">0 / 8</span>
+          </div>
+          <div class="water-actions">
+            <button class="water-button subtract" id="waterSubtract" type="button" aria-label="减少一杯水">−</button>
+            <div class="cup-visual" aria-hidden="true">💧</div>
+            <button class="water-button add" id="waterAdd" type="button" aria-label="增加一杯水">＋</button>
+          </div>
+          <p class="form-note">以 200–250 ml 为一杯；请按自己的身体状况调整。</p>
+        </article>
+      </section>
+
+      <section class="card" aria-labelledby="habitTitle">
+        <div class="section-heading compact">
+          <div>
+            <p class="eyebrow">健康行动</p>
+            <h2 id="habitTitle">给今天打个卡</h2>
+          </div>
+          <span class="muted">完成一项就很好</span>
+        </div>
+        <div class="habit-grid" id="habitList"></div>
+      </section>
+
+      <section class="card advice-card" aria-labelledby="adviceTitle">
+        <div class="section-heading compact">
+          <div>
+            <p class="eyebrow">温和建议</p>
+            <h2 id="adviceTitle">根据今天的记录</h2>
+          </div>
+          <span class="leaf" aria-hidden="true">✦</span>
+        </div>
+        <ul class="advice-list" id="adviceList"></ul>
+        <p class="medical-note">这是日常健康提示，不替代医生、营养师或其他专业医疗建议。</p>
+      </section>
+
+      <section class="card recipe-card" aria-labelledby="recipeTitle">
+        <div class="section-heading compact">
+          <div>
+            <p class="eyebrow">健康食谱</p>
+            <h2 id="recipeTitle">今天吃点什么？</h2>
+          </div>
+          <button class="text-button" id="refreshRecipes" type="button">换一组 ↻</button>
+        </div>
+        <p class="recipe-intro" id="recipeIntro">选择一份做起来不费劲的均衡餐食。</p>
+        <div class="recipe-filters" id="recipeFilters" role="group" aria-label="按餐次筛选食谱">
+          <button class="filter-button active" type="button" data-meal="all">全部</button>
+          <button class="filter-button" type="button" data-meal="breakfast">早餐</button>
+          <button class="filter-button" type="button" data-meal="lunch">午餐</button>
+          <button class="filter-button" type="button" data-meal="dinner">晚餐</button>
+          <button class="filter-button" type="button" data-meal="snack">加餐</button>
+        </div>
+        <div class="recipe-grid" id="recipeList"></div>
+        <p class="medical-note">食谱为一般成人的家常搭配示例。食物过敏、慢性疾病、孕期或特殊饮食需求，请按专业建议调整。</p>
+      </section>
+
+      <section class="card reminder-card" aria-labelledby="reminderTitle">
+        <div class="section-heading compact">
+          <div>
+            <p class="eyebrow">提醒测试</p>
+            <h2 id="reminderTitle">别让忙碌忘了照顾自己</h2>
+          </div>
+        </div>
+        <p class="reminder-copy">网页打开期间可发送浏览器提醒。测试成功后，转换成 Android App 时会支持后台提醒。</p>
+        <div class="reminder-actions">
+          <label class="time-label">
+            <span>今日提醒时间</span>
+            <input id="reminderTime" type="time" />
+          </label>
+          <button class="secondary-button" id="scheduleReminder" type="button">设置提醒</button>
+          <button class="text-button" id="testReminder" type="button">1 分钟后测试</button>
+        </div>
+        <p class="form-note" id="reminderStatus" role="status">尚未设置提醒。</p>
+      </section>
+
+      <section class="card history-card" aria-labelledby="historyTitle">
+        <div class="section-heading compact">
+          <div>
+            <p class="eyebrow">最近记录</p>
+            <h2 id="historyTitle">看见自己的节奏</h2>
+          </div>
+        </div>
+        <div class="history-empty" id="historyEmpty">保存第一条记录后，这里会显示最近 7 天的数据。</div>
+        <div class="history-table-wrap" id="historyTableWrap" hidden>
+          <table>
+            <thead><tr><th>日期</th><th>体重</th><th>睡眠</th><th>运动</th><th>喝水</th></tr></thead>
+            <tbody id="historyBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
