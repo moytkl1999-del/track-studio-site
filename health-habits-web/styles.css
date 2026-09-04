@@ -1,0 +1,155 @@
+:root {
+  --ink: #16342e;
+  --muted: #668078;
+  --surface: #ffffff;
+  --canvas: #f3f7f2;
+  --line: #dce8df;
+  --primary: #167a61;
+  --primary-dark: #105c49;
+  --mint: #dcf2e7;
+  --sand: #fff4d7;
+  --shadow: 0 12px 32px rgba(24, 63, 52, 0.08);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--ink);
+  background: radial-gradient(circle at 5% 0%, #e4f5ea 0 12%, transparent 31%), var(--canvas);
+  font-family: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+}
+button, input { font: inherit; }
+button { cursor: pointer; }
+.app-shell { width: min(960px, calc(100% - 32px)); margin: 0 auto; padding: 38px 0 64px; }
+.hero, .section-heading, .overview-grid, .water-actions, .reminder-actions { display: flex; align-items: center; }
+.hero { justify-content: space-between; margin: 0 4px 25px; }
+.mode-switch { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 17px; }
+.mode-button { min-height: 64px; padding: 11px 15px; border: 1px solid var(--line); border-radius: 17px; color: var(--ink); background: var(--surface); text-align: left; font-weight: 800; }
+.mode-button span { display: block; margin-top: 3px; color: var(--muted); font-size: .75rem; font-weight: 500; }
+.mode-button:hover { border-color: #92cdb4; }
+.mode-button.active { border-color: var(--primary); color: #fff; background: var(--primary); box-shadow: 0 8px 20px rgba(22, 122, 97, .18); }
+.mode-button.active span { color: #d9f4e8; }
+.jyn-plan { margin-bottom: 17px; padding: 24px; border: 1px solid #b9dec9; border-radius: 22px; background: linear-gradient(135deg, #effaf2, #fcfffc); box-shadow: var(--shadow); }
+.jyn-plan[hidden] { display: none; }
+.jyn-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.jyn-heading h2 { margin-top: 3px; font-size: 1.42rem; }
+.jyn-heading > div > p:last-child { margin-top: 8px; color: var(--muted); font-size: .9rem; }
+.jyn-badge { padding: 8px 10px; border-radius: 99px; color: #fff; background: var(--primary); font-size: .76rem; font-weight: 800; white-space: nowrap; }
+.goal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 11px; margin-top: 20px; }
+.goal-grid > div { padding: 13px; border: 1px solid #d5eadc; border-radius: 14px; background: rgba(255, 255, 255, .72); }
+.goal-grid span, .goal-grid small { display: block; color: var(--muted); font-size: .75rem; }
+.goal-grid strong { display: block; margin: 5px 0; color: var(--primary-dark); font-size: 1.12rem; }
+.jyn-callout { margin: 16px 0 0; padding: 13px 14px; border-left: 4px solid #e0a33c; border-radius: 7px 12px 12px 7px; color: #5d4a22; background: #fff6df; font-size: .89rem; line-height: 1.62; }
+.profile-panel, .training-recommendation { margin-top: 15px; padding: 16px; border: 1px solid #d5eadc; border-radius: 16px; background: rgba(255, 255, 255, .76); }
+.profile-panel h3, .training-recommendation h3 { margin: 3px 0 0; font-size: 1rem; }
+.profile-form { display: grid; grid-template-columns: repeat(3, 1fr) auto; align-items: end; gap: 10px; margin-top: 13px; }
+.profile-form .secondary-button { padding: 0 14px; }
+.training-metrics { margin: 14px 0 0; color: var(--muted); font-size: .86rem; line-height: 1.55; }
+.training-list { display: grid; gap: 8px; margin: 13px 0 0; padding-left: 1.25rem; }
+.training-list li { padding-left: 3px; font-size: .85rem; line-height: 1.55; }
+.jyn-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 13px; margin-top: 15px; }
+.plan-block { padding: 16px; border: 1px solid #d5eadc; border-radius: 16px; background: rgba(255, 255, 255, .76); }
+.plan-block h3 { margin: 0; font-size: 1rem; }
+.plan-block ul { display: grid; gap: 9px; margin: 13px 0 0; padding-left: 1.2rem; }
+.plan-block li { padding-left: 2px; font-size: .84rem; line-height: 1.55; }
+.jyn-note { margin: 15px 0 0; color: var(--muted); font-size: .79rem; line-height: 1.58; }
+h1, h2, p { margin: 0; }
+h1 { font-size: clamp(2rem, 4vw, 2.75rem); letter-spacing: -0.06em; }
+h2 { font-size: 1.17rem; letter-spacing: -0.03em; }
+.subtitle { margin-top: 8px; color: var(--muted); }
+.eyebrow { color: var(--primary); font-size: .78rem; font-weight: 800; letter-spacing: .09em; }
+.card { margin-top: 17px; padding: 23px; border: 1px solid rgba(220, 232, 223, .95); border-radius: 22px; background: var(--surface); box-shadow: var(--shadow); }
+.section-heading { justify-content: space-between; gap: 14px; }
+.section-heading.compact { align-items: flex-start; }
+.status-pill, .cup-count { padding: 7px 10px; border-radius: 999px; color: var(--primary-dark); background: var(--mint); font-size: .82rem; font-weight: 700; white-space: nowrap; }
+.icon-button { width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 50%; color: var(--primary); background: var(--surface); font-size: 1.35rem; }
+.icon-button:hover { background: var(--mint); }
+.overview-grid { gap: 25px; margin-top: 20px; }
+.water-ring { display: grid; place-content: center; flex: 0 0 114px; width: 114px; height: 114px; border-radius: 50%; background: conic-gradient(var(--primary) 0deg, #e7efe9 0deg); position: relative; text-align: center; }
+.water-ring::before { position: absolute; inset: 10px; border-radius: inherit; background: var(--surface); content: ""; }
+.water-ring span, .water-ring small { z-index: 1; }
+.water-ring span { font-size: 2rem; font-weight: 800; line-height: 1; }
+.water-ring small { margin-top: 2px; color: var(--muted); font-size: .72rem; }
+.overview-copy { flex: 1; min-width: 0; }
+.overview-copy > p:first-child { font-size: 1.04rem; line-height: 1.55; }
+.progress-track { height: 9px; margin: 14px 0 7px; overflow: hidden; border-radius: 99px; background: #e7efe9; }
+.progress-track span { display: block; width: 0; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #38a783, var(--primary)); transition: width .25s ease; }
+.muted, .form-note, .reminder-copy, .medical-note { color: var(--muted); font-size: .88rem; line-height: 1.55; }
+.two-column { display: grid; grid-template-columns: 1.25fr .75fr; gap: 17px; }
+form { margin-top: 20px; }
+.field-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; }
+label > span { display: block; margin-bottom: 7px; color: var(--ink); font-size: .88rem; font-weight: 700; }
+input { width: 100%; padding: 12px 13px; outline: none; border: 1px solid var(--line); border-radius: 11px; color: var(--ink); background: #fcfefd; }
+input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(22, 122, 97, .12); }
+.primary-button, .secondary-button, .text-button { min-height: 43px; border-radius: 11px; font-weight: 800; }
+.primary-button { width: 100%; margin-top: 15px; border: 0; color: white; background: var(--primary); }
+.primary-button:hover { background: var(--primary-dark); }
+.form-note { margin-top: 10px; }
+.water-card { display: flex; flex-direction: column; }
+.water-actions { justify-content: center; gap: 20px; flex: 1; min-height: 117px; }
+.water-button { width: 47px; height: 47px; border: 0; border-radius: 50%; color: var(--primary-dark); background: var(--mint); font-size: 1.55rem; }
+.water-button:hover { transform: translateY(-1px); background: #c7ead8; }
+.water-button.subtract { background: #eef3ef; color: var(--muted); }
+.cup-visual { display: grid; place-items: center; width: 70px; height: 70px; border-radius: 24px; background: #ecf8f2; font-size: 2.1rem; }
+.habit-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 20px; }
+.habit { min-height: 116px; padding: 15px; border: 1px solid var(--line); border-radius: 17px; color: var(--ink); background: #fff; text-align: left; transition: .18s ease; }
+.habit:hover { border-color: #acd9c4; transform: translateY(-2px); }
+.habit.done { border-color: #7cc9a8; background: var(--mint); }
+.habit-icon { display: block; margin-bottom: 12px; font-size: 1.4rem; }
+.habit strong, .habit small { display: block; }
+.habit strong { font-size: .93rem; }
+.habit small { margin-top: 4px; color: var(--muted); font-size: .75rem; line-height: 1.35; }
+.advice-card { background: linear-gradient(130deg, #fffdf7, #f7fcf8); }
+.leaf { color: #c5902e; font-size: 1.4rem; }
+.advice-list { display: grid; gap: 10px; margin: 20px 0 0; padding: 0; list-style: none; }
+.advice-list li { position: relative; padding: 12px 14px 12px 37px; border-radius: 12px; background: rgba(255, 255, 255, .76); line-height: 1.52; }
+.advice-list li::before { position: absolute; left: 14px; color: var(--primary); content: "•"; font-size: 1.5rem; line-height: .8; }
+.medical-note { margin-top: 17px; }
+.recipe-intro { margin-top: 15px; color: var(--muted); line-height: 1.55; }
+.recipe-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.filter-button { min-height: 34px; padding: 0 12px; border: 1px solid var(--line); border-radius: 99px; color: var(--muted); background: #fff; font-size: .82rem; font-weight: 700; }
+.filter-button:hover { border-color: #99ccb7; color: var(--primary); }
+.filter-button.active { border-color: var(--primary); color: #fff; background: var(--primary); }
+.recipe-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; margin-top: 16px; }
+.recipe { display: flex; flex-direction: column; padding: 16px; border: 1px solid var(--line); border-radius: 17px; background: #fcfefd; }
+.recipe-topline { display: flex; align-items: center; justify-content: space-between; gap: 9px; }
+.recipe-icon { font-size: 1.7rem; }
+.meal-badge { padding: 5px 8px; border-radius: 99px; color: var(--primary-dark); background: var(--mint); font-size: .72rem; font-weight: 800; }
+.recipe h3 { margin: 12px 0 7px; font-size: 1rem; }
+.recipe-meta { min-height: 2.8em; color: var(--muted); font-size: .8rem; line-height: 1.45; }
+.recipe details { margin-top: 13px; border-top: 1px solid var(--line); }
+.recipe summary { padding-top: 11px; color: var(--primary); cursor: pointer; font-size: .84rem; font-weight: 800; }
+.recipe details p { margin: 9px 0 0; font-size: .81rem; line-height: 1.6; }
+.recipe-tip { color: var(--muted); }
+.reminder-copy { margin-top: 16px; }
+.reminder-actions { gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+.time-label { min-width: 150px; }
+.time-label > span { font-size: .75rem; }
+.secondary-button { padding: 0 15px; border: 1px solid var(--primary); color: var(--primary); background: #fff; }
+.secondary-button:hover { background: var(--mint); }
+.text-button { padding: 0 7px; border: 0; color: var(--primary); background: transparent; }
+.text-button:hover { text-decoration: underline; }
+.history-empty { margin-top: 18px; padding: 20px; border-radius: 12px; color: var(--muted); background: #f6f9f6; text-align: center; }
+.history-table-wrap { margin-top: 17px; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; text-align: left; font-size: .9rem; }
+th, td { padding: 12px; border-bottom: 1px solid var(--line); }
+th { color: var(--muted); font-size: .78rem; }
+.toast { position: fixed; z-index: 3; right: 20px; bottom: 22px; max-width: calc(100vw - 40px); padding: 12px 15px; border-radius: 11px; color: #fff; background: var(--ink); box-shadow: var(--shadow); opacity: 0; transform: translateY(10px); pointer-events: none; transition: .2s ease; }
+.toast.show { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 680px) {
+  .app-shell { width: min(100% - 24px, 600px); padding-top: 25px; }
+  .card { padding: 19px; border-radius: 18px; }
+  .two-column { grid-template-columns: 1fr; gap: 0; }
+  .habit-grid { grid-template-columns: repeat(2, 1fr); }
+  .recipe-grid { grid-template-columns: 1fr; }
+  .goal-grid, .jyn-grid { grid-template-columns: 1fr; }
+  .field-grid, .profile-form { grid-template-columns: repeat(2, 1fr); }
+  .profile-form .secondary-button { grid-column: span 2; }
+  .overview-grid { align-items: flex-start; gap: 17px; }
+  .water-ring { flex-basis: 96px; width: 96px; height: 96px; }
+  .water-ring span { font-size: 1.65rem; }
+}
+
+@media (max-width: 390px) { .field-grid, .profile-form { grid-template-columns: 1fr; } .profile-form .secondary-button { grid-column: auto; } .overview-grid { flex-direction: column; } .mode-switch { grid-template-columns: 1fr; } .jyn-heading { flex-direction: column; } }
